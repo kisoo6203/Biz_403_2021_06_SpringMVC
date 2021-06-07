@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<appender name="STOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%d{HH:mm:ss.SSS}[%-5level] - %m%n</Pattern>
+		</layout>
+	</appender>
+	
+	<!--
+	level값만 바꿔주면 몇천개의데이터가 있던 숨겨준다
+	level값을 ERROR로 주면 HomeController의 logger.error에 의해서 숨겨짐! 
+	 -->
+	<root level="ERROR">
+		<appender-ref ref="STOUT"/>
+	
+	</root>
+</configuration>
