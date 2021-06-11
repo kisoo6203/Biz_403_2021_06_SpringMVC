@@ -12,7 +12,7 @@ form {
 }
 
 fieldset {
-	border: 1px solid green;
+	border: 1px solid grey;
 	border-radius: 15px;
 }
 
@@ -33,7 +33,7 @@ form label {
 	text-align: right;
 	margin: 4px 5px;
 	padding: 8px;
-	color: rgba(0, 0, 255, 0.5);
+	color: white;
 	font-weight: bold;
 }
 
@@ -43,7 +43,7 @@ form input {
 	padding: 8px 12px;
 	border-radius: 25px;
 	outline: 0;
-	border-color: rgba(0, 255, 0, 0.5);
+	border-color: grey;
 }
 
 form input:focus {
