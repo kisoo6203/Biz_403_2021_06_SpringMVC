@@ -1,0 +1,24 @@
+package com.callor.score.model;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+public class UserVO {
+	
+	private String username;
+	private String password;
+	private String name;
+	private String nname;
+	private String email;
+	private String tel;
+	private String addr;
+
+}

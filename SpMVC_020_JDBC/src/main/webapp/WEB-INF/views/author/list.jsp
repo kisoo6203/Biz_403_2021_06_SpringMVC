@@ -8,26 +8,28 @@
 <body>
 	<%@ include file="/WEB-INF/views/include/include_header.jspf"%>
 	<h1 class="page_title">저자정보</h1>
-	<table>
-		<tr>
-			<th>코드</th>
-			<th>저자명</th>
-			<th>전화번호</th>
-			<th>주소</th>
-			<th>주요장르</th>
-		</tr>
-		<tr>
-			<td>코드</td>
-			<td>저자명</td>
-			<td>전화번호</td>
-			<td>주소</td>
-			<td>주요장르</td>
-		</tr>
-	</table>
-	
-	<div class="btn_box">
-		<button class="btn_insert author">저자등록</button>
-	</div>
+	<section class="main_sec">
+		<table>
+			<tr>
+				<th>코드</th>
+				<th>저자명</th>
+				<th>전화번호</th>
+				<th>주소</th>
+				<th>주요장르</th>
+			</tr>
+			<tr>
+				<td>코드</td>
+				<td>저자명</td>
+				<td>전화번호</td>
+				<td>주소</td>
+				<td>주요장르</td>
+			</tr>
+		</table>
+
+		<div class="btn_box">
+			<button class="btn_insert author">저자등록</button>
+		</div>
+	</section>
 	<%@ include file="/WEB-INF/views/include/include_footer.jspf"%>
 </body>
 <script>

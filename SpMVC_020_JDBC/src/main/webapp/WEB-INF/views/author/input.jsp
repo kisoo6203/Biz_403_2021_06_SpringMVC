@@ -56,6 +56,7 @@ form input:hover {
 </style>
 <body>
 	<%@ include file="/WEB-INF/views/include/include_header.jspf"%>
+	<section class="main_sec">
 	<form method="POST">
 		<fieldset>
 			<legend>저자정보</legend>
@@ -86,8 +87,7 @@ form input:hover {
 			<button type="button" class="btn_list author">리스트로</button>
 		</div>
 	</form>
-
-
+	</section>
 	<%@ include file="/WEB-INF/views/include/include_footer.jspf"%>
 </body>
 <script>
