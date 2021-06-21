@@ -88,4 +88,11 @@ tr.input:hover {
 	</table>
 	
 </body>
+<script>
+document.querySelector("tr.in").addEventListener("click",()=>{
+	location.href = "${rootPath}/stu/input";
+})
+
+
+</script>
 </html>

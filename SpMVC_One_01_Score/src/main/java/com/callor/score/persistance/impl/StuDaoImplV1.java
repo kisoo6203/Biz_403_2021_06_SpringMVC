@@ -2,6 +2,7 @@ package com.callor.score.persistance.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -10,9 +11,10 @@ import com.callor.score.model.ScVO;
 import com.callor.score.model.StuVO;
 import com.callor.score.persistance.StuDao;
 
-@Repository("stuDao")
+@Repository("StuDao")
 public class StuDaoImplV1 implements StuDao{
 
+	@Autowired
 	protected final JdbcTemplate jdbcTemplate;
 	public StuDaoImplV1(JdbcTemplate jdbcTemplate) {
 		// TODO Auto-generated constructor stub

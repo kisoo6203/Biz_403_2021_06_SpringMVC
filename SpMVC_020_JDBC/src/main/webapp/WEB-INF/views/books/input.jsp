@@ -5,59 +5,21 @@
 <!DOCTYPE html>
 <html>
 <%@ include file="/WEB-INF/views/include/include_head.jspf"%>
+
 <style>
-form {
-	width: 80%;
-	margin: 15px auto;
+form#book_input.search{
+	width:30%;
 }
 
-fieldset {
-	border: 1px solid grey;
-	border-radius: 15px;
-}
-
-legend {
-	text-align: center;
-	padding: 10px 20px;
-	background-color: #aaa;
-}
-
-form div {
-	width: 80%;
-	margin: 5px auto;
-}
-
-form label {
-	display: inline-block;
-	width: 20%;
-	text-align: right;
-	margin: 4px 5px;
-	padding: 8px;
-	color: white;
-	font-weight: bold;
-}
-
-form input {
-	width: 70%;
-	margin: 4px 5px;
-	padding: 8px 12px;
-	border-radius: 25px;
-	outline: 0;
-	border-color: grey;
-}
-
-form input:focus {
-	border-color: #999;
-}
-
-form input:hover {
-	background-color: #ddd;
-}
 </style>
+<script>
+	var rootPath = "${rootPath}"
+</script>
+<script src="${rootPath}/static/js/book_input.js?ver=2021-06-21-009"></script>
 <body>
 	<%@ include file="/WEB-INF/views/include/include_header.jspf"%>
 	<section class="main_sec">
-		<form method="POST">
+		<form id="book_input" method="POST">
 			<fieldset>
 				<legend>도서정보 등록</legend>
 				<div>
@@ -69,12 +31,14 @@ form input:hover {
 						placeholder="">
 				</div>
 				<div>
-					<label>출판사</label> <input name="bk_ccode" id="bk_ccode"
+					<label>출판사</label> <input class="search" name="bk_ccode" id="bk_ccode"
 						placeholder="">
+						<span>출판사명</span>
 				</div>
 				<div>
-					<label>저자</label> <input name="bk_acode" id="bk_acode"
+					<label>저자</label> <input class="search" name="bk_acode" id="bk_acode"
 						placeholder="">
+						<span>저자명</span>
 				</div>
 				<div>
 					<label>출판년도</label> <input name="bk_date" id="bk_date"
@@ -97,10 +61,8 @@ form input:hover {
 		</form>
 	</section>
 	<%@ include file="/WEB-INF/views/include/include_footer.jspf"%>
+	
+
 </body>
-<script>
-document.querySelector("button.btn_book_insert").addEventListener("click",()=>{
-	location.href = "${rootPath}/books/insert";
-});
-</script>
+
 </html>

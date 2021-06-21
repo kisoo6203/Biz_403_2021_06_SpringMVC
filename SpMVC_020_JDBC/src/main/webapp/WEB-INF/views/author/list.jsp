@@ -17,13 +17,41 @@
 				<th>주소</th>
 				<th>주요장르</th>
 			</tr>
-			<tr>
-				<td>코드</td>
-				<td>저자명</td>
-				<td>전화번호</td>
-				<td>주소</td>
-				<td>주요장르</td>
-			</tr>
+			<!-- 
+			choose의 기본형
+			<c:choose>
+				<c:when test="">
+				
+				</c:when>
+				<c:otherwise>
+				
+				</c:otherwise>
+			</c:choose>
+			 -->
+			
+			<!-- 
+			<c:when test="${empty AUTH-LIST}">
+			AUTH-LIST 로 하면
+			계산식에 의해 java는 연산으로 받아들인다
+			= AUTH 마이너스 LIST로 받아들임
+			 -->
+			<c:choose>
+				<c:when test="${empty AUTHORS}">
+					<tr><td colspan="5">데이터가 없습니다</td></tr>					
+				</c:when>
+				<c:otherwise>
+					<c:forEach items="${AUTHORS}" var="AUTHOR">
+						<tr>
+							<td>${AUTHOR.au_code}</td>
+							<td>${AUTHOR.au_name}</td>
+							<td>${AUTHOR.au_tel}</td>
+							<td>${AUTHOR.au_addr}</td>
+							<td>${AUTHOR.au_genre}</td>
+						</tr>		
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>
+			
 		</table>
 
 		<div class="btn_box">
