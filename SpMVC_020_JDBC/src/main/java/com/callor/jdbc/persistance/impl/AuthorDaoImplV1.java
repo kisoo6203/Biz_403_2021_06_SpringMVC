@@ -29,7 +29,7 @@ public class AuthorDaoImplV1 implements AuthorDao {
 	
 	@Override
 	public List<AuthorVO> selectAll() {
-		// TODO Auto-generated method stub
+
 		String sql = " SELECT * FROM tbl_author ";
 		List<AuthorVO> authorList
 		= jdbcTemplate.query(sql, 
@@ -41,7 +41,7 @@ public class AuthorDaoImplV1 implements AuthorDao {
 	public AuthorVO findById(String au_code) {
 		// TODO Auto-generated method stub
 		String sql = " SELECT * FROM tbl_author ";
-		sql += " WHERE cp_code = ? ";
+		sql += " WHERE au_code = ? ";
 		AuthorVO author
 		= (AuthorVO) jdbcTemplate.query(sql, new Object[] {au_code},
 				new BeanPropertyRowMapper<AuthorVO>(AuthorVO.class));
@@ -70,7 +70,7 @@ public class AuthorDaoImplV1 implements AuthorDao {
 	public List<AuthorVO> findByAName(String aname) {
 		// TODO Auto-generated method stub
 		String sql = " SELECT * FROM tbl_author ";
-		sql += " WHERE cp_title LIKE CONCAT('%', ? ,'%') ";
+		sql += " WHERE au_name LIKE CONCAT('%', ? ,'%') ";
 		List<AuthorVO> authorList
 		= jdbcTemplate.query(sql, new Object[] {aname},
 				new BeanPropertyRowMapper<AuthorVO>(AuthorVO.class));
@@ -81,7 +81,7 @@ public class AuthorDaoImplV1 implements AuthorDao {
 	public List<AuthorVO> findByTel(String atel) {
 		// TODO Auto-generated method stub
 		String sql = " SELECT * FROM tbl_author ";
-		sql += " WHERE cp_tel = ? ";
+		sql += " WHERE au_tel LIKE CONCAT('%', ? , '%') ";
 		
 		/*
 		 * 전화번호로 조회를 하면 1개의 데이터만 추출될 것이다

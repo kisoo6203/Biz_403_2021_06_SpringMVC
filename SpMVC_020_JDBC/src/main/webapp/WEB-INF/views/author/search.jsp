@@ -6,9 +6,7 @@
 <html>
 <%@ include file="/WEB-INF/views/include/include_head.jspf"%>
 <body>
-	<%@ include file="/WEB-INF/views/include/include_header.jspf"%>
-	<h1 class="page_title">저자정보</h1>
-	<section class="main_sec">
+	<section class="search_sec">
 		<table>
 			<tr>
 				<th>코드</th>
@@ -24,7 +22,7 @@
 				</c:when>
 				<c:otherwise>
 					<c:forEach items="${AUTHORS}" var="AUTHOR">
-						<tr>
+						<tr data-acode="${AUTHOR.au_code}" class="search_author">
 							<td>${AUTHOR.au_code}</td>
 							<td>${AUTHOR.au_name}</td>
 							<td>${AUTHOR.au_tel}</td>
@@ -36,12 +34,7 @@
 			</c:choose>
 			
 		</table>
-
-		<div class="btn_box">
-			<button class="btn_insert author">저자등록</button>
-		</div>
 	</section>
-	<%@ include file="/WEB-INF/views/include/include_footer.jspf"%>
 </body>
 <script>
 document.querySelector("button.btn_insert.author").addEventListener("click",()=>{

@@ -10,5 +10,6 @@ public interface CompService {
 	public List<CompVO> findByCName(String cp_code);
 	public List<CompVO> selectAll();
 	public CompVO findByCCode(String cp_code); // Primary Key 이기때문에 데이터는 한개만올라옴
+	public List<CompVO> findByTitleAndCeoAndTel(String text);
 
 }
