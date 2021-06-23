@@ -53,7 +53,7 @@
 					<c:when test="${not empty AUTHORS}">
 						<c:forEach var="index" begin="0" end="4">
 							<li>${AUTHORS[index].au_name}, ${AUTHORS[index].au_tel},
-								${BOOKS[index].au_genre}</li>
+								${AUTHORS[index].au_addr}</li>
 						</c:forEach>
 					</c:when>
 					<c:otherwise>
