@@ -1,0 +1,77 @@
+@charset "UTF-8";
+    body {
+      background: linear-gradient(130deg, #7389d0, #eebdc3);
+      background-attachment: fixed;
+    }
+    h1,
+    h4 {
+      /* 상단 로고 부분 */
+      color: white;
+      text-shadow: 0px 0px 20px rgb(234 237 176);
+    }
+    h1 {
+      text-align: center;
+      font-size: 70px;
+      height: 50px;
+    }
+    h4 {
+      font-size: 28px;
+      text-align: center;
+    }
+    section {
+      /* 개인정보 등록하는 부분을 감싼 옅은 선 */
+      display: grid;
+      justify-items: center;
+    }
+    fieldset {
+      /* 개인정보 등록하는 부분을 감싼 옅은 선 */
+      border-radius: 20px;
+      display: grid;
+      justify-items: center;
+    }
+
+    section label {
+      /* input박스 위치정렬 */
+      display: inline-block;
+      width: 30%;
+    }
+    section input {
+      /* input박스 크기수정 */
+      width: 60%;
+      margin: 4px 5px;
+      padding: 4px 5px;
+      border-radius: 5px;
+      outline: 0;
+    }
+    section input:hover {
+      background-color: rgb(187, 187, 187);
+    }
+    select {
+      /* 성별,지역선택 box크기 수정 */
+      padding: 2px;
+      width: 64%;
+      border-radius: 6px;
+    }
+    select:hover {
+      background-color: rgb(187, 187, 187);
+      cursor: pointer;
+    }
+
+    div.as {
+      /* 칼럼별 글씨크기 */
+      color: white;
+      font-weight: 900;
+    }
+
+    p {
+      color: red;
+      text-align: center;
+    }
+    button {
+      text-align: right;
+      border-radius: 10px;
+    }
+    button:hover {
+      background-color: rgb(187, 187, 187);
+      cursor: pointer;
+    }
