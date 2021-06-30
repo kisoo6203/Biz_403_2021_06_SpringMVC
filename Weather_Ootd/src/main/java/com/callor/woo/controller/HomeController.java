@@ -24,7 +24,7 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 
 		
-		return "join";
+		return "test";
 	}
 	@RequestMapping(value = "/join/",method=RequestMethod.GET)
 	public String join() {
