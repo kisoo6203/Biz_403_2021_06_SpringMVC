@@ -28,7 +28,7 @@ html, body {
   transform: translate(-50%, -50%);
   perspective: 400px;
   cursor: pointer;
-
+}
   &:before {
     content: 'CLICK';
     color: #777;
@@ -38,6 +38,7 @@ html, body {
     bottom: -30px;
     left: 50%;
     transform: translate(-50%);
+  
   }
 
   img {
