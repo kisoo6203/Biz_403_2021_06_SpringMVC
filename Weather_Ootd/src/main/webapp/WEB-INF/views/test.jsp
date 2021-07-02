@@ -1,7 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:set var="rootPath" value="${pageContext.request.contextPath}"/>   
+<%@ page
+	language="java"
+	contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib
+	uri="http://java.sun.com/jsp/jstl/core"
+	prefix="c"%>
+<c:set
+	var="rootPath"
+	value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,63 +16,75 @@
 </head>
 <style>
 *, *:before, *:after {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 html, body {
-  height: 100%;
-  overflow: hidden;
-  background: #000;
+	height: 100%;
+	overflow: hidden;
+	background: #000;
 }
 
 .split {
-  width: 750px;
-  height: 468px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  perspective: 400px;
-  cursor: pointer;
-}
-  &:before {
-    content: 'CLICK';
-    color: #777;
-    letter-spacing: 1px;
-    font-size: 10px;
-    position: absolute;
-    bottom: -30px;
-    left: 50%;
-    transform: translate(-50%);
-  
-  }
-
-  img {
-    height: auto;
-    width: 100%;
-    opacity: 0;
-  }
-
-  div {
-    position: absolute;
-    z-index: 1;
-    background-repeat: no-repeat;
-    transform: rotateY(-50deg) scale(0.5);
-    opacity: 0;
-    transform-origin: bottom;
-    transition: all .6s cubic-bezier(.71, .05, .09, .91);
-  }
-
-  &.active {
-    div {
-      opacity: 1;
-      transform: rotate(0deg) translateY(0);
-    }
-  }
+	width: 750px;
+	height: 468px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	perspective: 400px;
+	cursor: pointer; &: before { content : 'CLICK';
+	color: #777;
+	letter-spacing: 1px;
+	font-size: 10px;
+	position: absolute;
+	bottom: -30px;
+	left: 50%;
+	transform: translate(-50%);
 }
 
+img {
+	height: auto;
+	width: 100%;
+	opacity: 0;
+}
+
+div {
+	position: absolute;
+	z-index: 1;
+	background-repeat: no-repeat;
+	transform: rotateY(-50deg) scale(0.5);
+	opacity: 0;
+	transform-origin: bottom;
+	transition: all .6s cubic-bezier(.71, .05, .09, .91);
+}
+
+&
+.active {div { opacity:1;
+	transform: rotate(0deg) translateY(0);
+}
+}
+}
 </style>
-<script>
+
+<body>
+	<!--
+
+Follow me on
+Twitter: https://twitter.com/supahfunk
+Dribbble: https://dribbble.com/supahfunk
+
+Sai chi ti saluta tantissimo?
+
+-->
+
+	<div class="split">
+		<img
+			src="https://github.com/supahfunk/supah-codepen/blob/master/stcz-1.png?raw=true" />
+	</div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
 var Split = function () {
 	  this.$t = $(".split");
 	  this.gridX = 6;
@@ -141,19 +159,8 @@ var Split = function () {
 
 </script>
 
-<body>
-<!--
 
-Follow me on
-Twitter: https://twitter.com/supahfunk
-Dribbble: https://dribbble.com/supahfunk
 
-Sai chi ti saluta tantissimo?
 
--->
 
-<div class="split">
-  <img src="https://github.com/supahfunk/supah-codepen/blob/master/stcz-1.png?raw=true" />
-</div>
-</body>
 </html>

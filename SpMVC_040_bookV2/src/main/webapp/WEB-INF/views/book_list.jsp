@@ -15,8 +15,9 @@
 			</p>
 			<p class="publisher">
 				<strong>출판사 : </strong>${BOOK.publisher}
-			</p>
-			<a href="${rootPath}/book/insert/${BOOK.isbn}">내 서재등록</a>
+			</p>		
+				<a href="${rootPath}/book/insert/${BOOK.isbn}">내 서재등록</a>
+			
 		</div>
 	</div>
 </c:forEach>

@@ -5,7 +5,7 @@
   
  <mapper namespace="com.callor.book.dao.ext.BookDao">
  
- 	<select id="selectAll">
+ 	<select id="selectAll" resultType="BookDTO">
  		SELECT * FROM tbl_books
  		ORDER BY isbn
  	</select>
