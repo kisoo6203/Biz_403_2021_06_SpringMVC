@@ -28,14 +28,14 @@ public class BookServiceImplV1 implements BookService{
 	protected final BookDao bookDao;
 	
 	@Override
-	public int insert(String isbnUTF) throws ParseException, IOException {
+	public int insert(String isbnUTF) throws Exception {
 		
 		String isbn = URLDecoder.decode(isbnUTF,"UTF-8");
 		String[] isbns = isbn.split(" ");
 		
 		isbn = isbns[1];
 		String queryURL = nBookService.queryURL(isbn);
-		String jsonString = nBookService.jsonString(queryURL);
+		String jsonString = nBookService.getjsonString(queryURL);
 		List<BookDTO> books = nBookService.getNaverList(jsonString);
 		BookDTO book = books.get(0);
 		book.setIsbn(isbn);

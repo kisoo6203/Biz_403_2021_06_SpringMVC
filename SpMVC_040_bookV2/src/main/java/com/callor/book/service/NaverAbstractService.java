@@ -36,11 +36,11 @@ import com.callor.book.config.NaverSecret;
  */
 public abstract class NaverAbstractService<T> {
 
-	public abstract String queryURL(String search) throws UnsupportedEncodingException;
+	public abstract String queryURL(String search) throws Exception;
 	
-	public abstract List<T> getNaverList(String jsonString) throws ParseException;
+	public abstract List<T> getNaverList(String jsonString) throws Exception;
 	
-	public String jsonString(String queryURL) throws IOException {
+	public String getjsonString(String queryURL) throws Exception {
 		
 		URL url = new URL(queryURL);
 
@@ -74,6 +74,8 @@ public abstract class NaverAbstractService<T> {
 		}
 		return sBuffer.toString();
 	}
+
+	
 	
 	
 	

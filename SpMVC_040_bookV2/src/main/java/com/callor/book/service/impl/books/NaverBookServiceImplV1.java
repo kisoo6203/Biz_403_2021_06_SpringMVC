@@ -76,7 +76,7 @@ public class NaverBookServiceImplV1 extends NaverAbstractService<BookDTO>{
 	 * json-simple을 사용하여 pasing하기
 	 */
 	@Override
-	public List<BookDTO> getNaverList(String jsonString) throws ParseException {
+	public List<BookDTO> getNaverList(String jsonString) throws Exception {
 		// TODO Auto-generated method stub
 		
 		// 1. json Parsing 도구 선언

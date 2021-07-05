@@ -51,11 +51,11 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	public String home1(@RequestParam(name="search",required = false, defaultValue = "") String search, Model model) throws MalformedURLException, IOException, ParseException {
+	public String home1(@RequestParam(name="search",required = false, defaultValue = "") String search, Model model) throws Exception {
 
 		if(search != null && !search.equals("")) {
 			String queryURL = nBookService.queryURL(search.trim());
-			String jsonString = nBookService.jsonString(queryURL);
+			String jsonString = nBookService.getjsonString(queryURL);
 			List<BookDTO> bookList = nBookService.getNaverList(jsonString);
 			model.addAttribute("BOOKS",bookList);
 		}

@@ -23,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 public class NaverMovieServiceImplV1 extends NaverAbstractService<MovieDTO>{
 
 	@Override
-	public String queryURL(String search_text) throws UnsupportedEncodingException {
+	public String queryURL(String search_text) throws Exception {
 		// TODO 검색어 UTF-8 로 인코딩
 	      String searchUTF8 = URLEncoder.encode(search_text, "UTF-8");
 	      String queryURL = NaverSecret.NURL.MOVIE;
@@ -60,7 +60,7 @@ public class NaverMovieServiceImplV1 extends NaverAbstractService<MovieDTO>{
 	}
 
 	@Override
-	public List<MovieDTO> getNaverList(String jsonString) throws ParseException {
+	public List<MovieDTO> getNaverList(String jsonString) throws Exception {
 		// TODO 전달받은 데이터를 VO에 담기
 		
 	      JsonElement jsonElement = JsonParser.parseString(jsonString);
