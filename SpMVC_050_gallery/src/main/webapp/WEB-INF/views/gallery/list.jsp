@@ -16,10 +16,14 @@
 <c:forEach items="${GALLERYS}" var="GALLERY">
 	<div class="ga_box">
 		<div>
-			<img src="${rootPath}/files/${GALLERY.g_image}">
+			<img src="${rootPath}/files/${GALLERY.g_image}" width="100%">
 		</div>
 		<div>
-			<h3>${GALLERY.g_subject}</h3>
+			<h3>
+				<a href="${rootPath}/gallery/detail/${GALLERY.g_seq}">
+					${GALLERY.g_subject}
+				</a>
+			</h3>
 			<p>${GALLERY.g_content}</p>
 		</div>
 	</div>
