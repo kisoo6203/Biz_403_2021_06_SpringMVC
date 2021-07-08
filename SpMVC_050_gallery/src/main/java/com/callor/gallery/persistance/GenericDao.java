@@ -4,10 +4,11 @@ import java.util.List;
 import java.util.Map;
 
 import com.callor.gallery.model.GalleryDTO;
+import com.callor.gallery.model.MemberVO;
 
 public interface GenericDao<VO, PK> {
 	
-	public List<GalleryDTO> selectAll();
+	public List<VO> selectAll();
 	public VO findById(PK pk);
 	
 	public int insert(GalleryDTO gaDTO);
