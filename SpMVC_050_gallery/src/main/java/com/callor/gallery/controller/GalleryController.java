@@ -66,7 +66,12 @@ public class GalleryController {
 	@RequestMapping(value={"/", ""},method=RequestMethod.GET)
 	public String list(
 		@RequestParam (value = "pageNum", required = false, defaultValue = "1")
-					String pageNum,	Model model) throws Exception {
+					String pageNum,
+		@RequestParam(value="search_column", required = false, defaultValue = "NONE")
+			String search_column,
+		@RequestParam(value="search_text", required = false, defaultValue = "NONE")
+			String search_text,
+			Model model) throws Exception {
 		
 		int intPageNum = Integer.valueOf(pageNum);
 		
@@ -76,6 +81,9 @@ public class GalleryController {
 		
 		List<GalleryDTO> gallerPageList = gaService.selectAllPage(intPageNum);
 		model.addAttribute("GALLERYS",gallerPageList);
+		
+		// search_column,search_text를 사용하여 조건검색
+		gaService.findBySearchPage(search_column, search_text, intPageNum, model);
 		
 		model.addAttribute("BODY","GA-LIST");
 		return "home";

@@ -20,6 +20,7 @@ import com.callor.gallery.persistance.ext.FileDao;
 import com.callor.gallery.persistance.ext.GalleryDao;
 import com.callor.gallery.service.FileService;
 import com.callor.gallery.service.GalleryService;
+import com.callor.gallery.service.PageService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -42,6 +43,8 @@ public class GalleryServiceImplV1 implements GalleryService {
 	
 	@Qualifier("fileServiceV2")
 	protected final FileService fService;
+	
+	protected final PageService pageService;
 	
 	/*
 	 * @Autowired가 설정된 변수, method, 객체 등을 만나면
@@ -144,7 +147,7 @@ public class GalleryServiceImplV1 implements GalleryService {
 	}
 
 	@Override
-	public GalleryDTO findByIdGellery(Long g_seq) {
+	public GalleryDTO findByIdGallery(Long g_seq) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -207,39 +210,23 @@ public class GalleryServiceImplV1 implements GalleryService {
 		return pageList;
 	}
 	
-	public List<GalleryDTO> selectAllPage(int pageNum, Model model) throws Exception {
-		// 1 전체 데이터 SELECT 하기
-		List<GalleryDTO> gaListAll = gaDao.selectAll();
+	public List<GalleryDTO> selectAllPage(int intPageNum, Model model) throws Exception {
+		List<GalleryDTO> galleryAll = gaDao.selectAll();
+		int totalListSize = galleryAll.size();
 
-		// 2 pageNum가 1이라면 list에서 0번째 요소 ~ 9번째 요소까지 추출하기
-		//   pageNum가 2라면 list에서 10번째 요소 ~ 19번째 요소까지 추출하기
-		//   pageNum가 3라면 list에서 20번째 요소 ~ 29번째 요소까지 추출하기
-		
-		int totalCount = gaListAll.size();
-		
-		int start = (pageNum - 1) * 10;
-		int end = pageNum * 10;
-		
-		if( pageNum * 10 > totalCount - 10) {
-			end = totalCount;
-			start = end - 10;
-		}
+		PageDTO pageDTO = pageService.makePagination(totalListSize, intPageNum);
 		
 		List<GalleryDTO> pageList = new ArrayList<>();
-		for(int i = start; i < end ; i++) {
-			pageList.add(gaListAll.get(i));
+		
+		for(int i = pageDTO.getOffset() ; i < pageDTO.getLimit() ; i++) {
+			pageList.add(galleryAll.get(i));
 		}
 		
+		model.addAttribute("PAGE_NAV",pageDTO);
+		model.addAttribute("GALLERYS",pageList);
+
 		
-		int listPerPage = 10;
-		int navsPerPage = 10;
-		PageDTO pageDTO = PageDTO.builder()
-					.totalPage(totalCount / navsPerPage)
-					.listPerPage(listPerPage)
-					.navsPerPage(navsPerPage)
-					.build();
-		model.addAttribute("PAGE_INFO",pageDTO);
-		return pageList;
+		return null;
 		
 	}
 
@@ -252,6 +239,34 @@ public class GalleryServiceImplV1 implements GalleryService {
 	@Override
 	public List<GalleryDTO> fineBySearchOderPage(int pageNum, String search, String column) {
 		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<GalleryDTO> findBySearchPage(String search_column, String search_text, int pageNum, Model model) {
+		
+		List<GalleryDTO> galleryList = gaDao.findBySearch(search_column, search_text);
+		log.debug("page {}",galleryList.toString());
+		
+		int totalListSize = galleryList.size();
+		PageDTO pageDTO = pageService.makePagination(totalListSize, pageNum);
+		
+		List<GalleryDTO> pageList = new ArrayList<>();
+		
+		if(pageDTO == null) {
+			model.addAttribute("GALLERYS",galleryList);
+			return null;
+		}
+		
+		
+		log.debug("pageDTO {}",pageDTO.toString());
+		for(int i = pageDTO.getOffset() ; i < pageDTO.getLimit() ; i++) {
+			pageList.add(galleryList.get(i));
+		}
+		log.debug("page {}",pageList.toString());
+		
+		model.addAttribute("GALLERYS",pageList);
+		
 		return null;
 	}
 
