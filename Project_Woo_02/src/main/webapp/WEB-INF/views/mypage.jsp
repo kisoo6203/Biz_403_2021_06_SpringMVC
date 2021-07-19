@@ -22,7 +22,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <link
-	href="${rootPath}/static/css/mypage.css?ver=2021-07-09-002"
+	href="${rootPath}/static/css/mypage.css?ver=2021-07-19-002"
 	rel="stylesheet" />
 <script>
 document.addEventListener("DOMContentLoaded", ()=>{
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 								class="textForm"
 								placeholder="수정할 비밀번호를 재확인..." /></td>
 					</tr>
-					<tr>
+					<tr class="testtt">
 						<th>지역선택</th>
 						<td><select
 							name="user_country"

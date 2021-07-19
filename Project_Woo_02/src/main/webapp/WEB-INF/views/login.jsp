@@ -10,16 +10,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>로그인</title>
 </head>
-<link href="${rootPath}/static/css/login.css?ver=2021-07-09-001"
+<link href="${rootPath}/static/css/login.css?ver=2021-07-19-001"
 	rel="stylesheet" />
-<style>
-div.msg {
-	width: 50%;
-	height: 10px;
-	background-color: red;
-	font-size: 10px;
-}
-</style>
+
 <body>
 	<form id="login" method="POST">
 		<figure class="logo">

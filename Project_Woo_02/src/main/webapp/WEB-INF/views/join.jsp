@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>회원가입</title>
 </head>
-<link href="${rootPath}/static/css/join.css?ver=2021-07-09-001"
+<link href="${rootPath}/static/css/join.css?ver=2021-07-19-001"
 	rel="stylesheet" />
 <body>
 	<figure class="snip1432">
@@ -74,7 +74,7 @@
 					</tr>
 				</table>
 				<button type="button" class="btn_join" id="btn_join">가입하기</button>
-				<button type="button" id="btn_home">홈으로</button>
+				<button type="button" class="btn_join" id="btn_home">홈으로</button>
 			</fieldset>
 		</form>
 	</section>
