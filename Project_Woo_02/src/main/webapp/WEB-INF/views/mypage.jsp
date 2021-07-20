@@ -1,44 +1,22 @@
-<%@ page
-	language="java"
-	contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"	
 	pageEncoding="UTF-8"%>
-<%@ taglib
-	uri="http://java.sun.com/jsp/jstl/core"
-	prefix="c"%>
-<c:set
-	var="rootPath"
-	value="${pageContext.request.contextPath}" />
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="rootPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8" />
-<meta
-	http-equiv="X-UA-Compatible"
-	content="IE=edge" />
-<meta
-	name="viewport"
-	content="width=device-width, initial-scale=1.0" />
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
-<link
-	href="${rootPath}/static/css/mypage.css?ver=2021-07-19-002"
-	rel="stylesheet" />
-<script>
-document.addEventListener("DOMContentLoaded", ()=>{
-	document.querySelector("button.btn_home").addEventListener("click",()=>{
-		let tagName = e.target.tagName;
-		if(tagName === "DIV"){
-			let menuText = e.target.textContent;
-			if(menuText === "HOME"){
-				document.location.href = "redirect:/"
-			}
-		}
-	})
-})
-</script>
+<link href="${rootPath}/static/css/mypage.css?ver=2021-07-20-001" rel="stylesheet" />
+<style>
+tr.hid {
+	display: none;
+}
+</style>
 <body>
-	<figure class="snip1432">
+	<figure class="clip">
 		<figcaption>
 			<div>
 				<h1>Changing Information</h1>
@@ -51,67 +29,66 @@ document.addEventListener("DOMContentLoaded", ()=>{
 		<a href="#"></a>
 	</figure>
 	<section id="join_wrap">
-		<form>
+		<form class="mem_up" method="POST">
 			<fieldset>
-				<table class="joinTable" >
+				<table class="joinTable">
+					<tr>
+						<th class="first"><label for="user_name">이름</label></th>
+						<td><input type="text" id="us_name"	class="textForm" value="${MEM.us_name}" readonly="readonly"	name="us_name" />
+					</tr>
 					<tr>
 						<th class="first"><label for="user_id">ID</label></th>
-						<td><input
-								type=""
-								id="user_id"
-								class="textForm"
-								value="${MEM.us_id}" readonly="readonly"/></td>
+						<td><input id="us_id" class="textForm" value="${MEM.us_id}"	readonly="readonly" /></td>
 					</tr>
 					<tr>
 						<th><label for="user_pwd">PW</label></th>
-						<td><input
-								type="password"
-								id="user_pwd"
-								class="textForm"
-								placeholder="수정할 비밀번호 입력" /></td>
+						<td><input type="password" id="us_pw" class="textForm" placeholder="수정할 비밀번호 입력" name="us_pw" value="${MEM.us_pw}" /></td>
 					</tr>
 					<tr>
 						<th><label for="user_pwd_check">PW(check)</label></th>
-						<td><input
-								type="password"
-								id="user_pwd"
-								class="textForm"
-								placeholder="수정할 비밀번호를 재확인..." /></td>
+						<td><input type="password" id="us_pw_ch" class="textForm" placeholder="수정할 비밀번호를 재확인..." /></td>
 					</tr>
-					<tr class="testtt">
+					<tr class="hid">
 						<th>지역선택</th>
-						<td><select
-							name="user_country"
-							class="textForm">
-								<option>선택</option>
-								<option>서울</option>
-								<option>대전</option>
-								<option>대구</option>
-								<option>부산</option>
-								<option>광주</option>
-								<option>경기도</option>
-								<option>강원도</option>
-								<option>충청북도</option>
-								<option>충청남도</option>
-								<option>전라북도</option>
-								<option>전라남도</option>
-								<option>경상북도</option>
-								<option>경상남도</option>
-						</select></td>
-					</tr>
-					<tr>
-						<th>상세주소</th>
-						<td><input
-								class="textForm"
-								placeholder="수정한 주소값 담기" /></td>
+						<td><input id="us_city" class="textForm" value="${MEM.us_city}" readonly="readonly" /></td>
 					</tr>
 				</table>
 				<div>
-					<button class="btn_update">정보수정</button>
-					<button class="btn_home">HOME</button>
+					<button id="btn_update" class="btn_update" type="button">정보수정</button>
+					<button id="btn_home" class="btn_home" type="button">HOME</button>
 				</div>
 			</fieldset>
 		</form>
 	</section>
 </body>
+<script>
+   let user_id = document.querySelector("#us_id")
+   let user_pw = document.querySelector("#us_pw")
+   let user_pw_ch = document.querySelector("#us_pw_ch")
+   let btn_home = document.querySelector("button#btn_home")
+   let btn_update = document.querySelector("button#btn_update")
+   
+   if(btn_update) {
+   btn_update.addEventListener("click",()=>{
+      if(user_pw.value === ""){
+      alert("비밀번호를 입력해주세요")
+      user_pw.focus();
+      return false
+      }
+      if(user_pw_ch.value !== user_pw.value){
+      alert("비밀번호가 일치하지 않습니다.")
+      user_pw_ch.focus();
+      return false
+      } else {
+         document.querySelector("form.mem_up").submit();
+      }
+       
+   })
+   }
+   if(btn_home) {
+      btn_home.addEventListener("click",()=> {
+         location.href="${rootPath}"
+      })
+   }
+</script>
 </html>
